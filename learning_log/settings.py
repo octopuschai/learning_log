@@ -135,7 +135,8 @@ BOOTSTRAP3 = {
 
 # Heroku设置
 # 现在估计是Heroku升级了，改为了下面的语句，否则待会儿部署的时候会出错
-if os.environ['HOME'] == "/app":
+# 增加os.name判断条件，避免Windows下os.environ找不到['HOME'] raise键值错误
+if os.name != 'nt' and os.environ['HOME'] == "/app":
     import dj_database_url
 
     DATABASES = {
