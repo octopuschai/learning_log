@@ -17,21 +17,33 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
               data-target="#navbar" aria-expanded="false" aria-controls="navbar">
       </button>
-      <a class="navbar-brand" href="{% url 'learning_logs:index' %}">Learning Log</a>
+      <a class="navbar-brand" href="{% url 'learning_logs:index' %}">
+          <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+          Learning Log
+      </a>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="{% url 'learning_logs:topics' %}">Topics</a></li>
+        <li><a href="{% url 'learning_logs:topics' %}">
+            <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
+            Topics
+        </a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         {% if user.is_authenticated %}
-          <li><a>Hello, <b>{{ user.username }}</b>.</a></li>
-          <li><a href="{% url 'users:logout' %}">log out</a></li>
+          <li><a>Hello, <b>{{ user.username }}</b>.
+              <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>
+          </a></li>
+          <li><a href="{% url 'users:logout' %}">log out
+              <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+          </a></li>
         {% else %}
           <li><a href="{% url 'users:register' %}">register</a></li>
-          <li><a href="{% url 'users:login' %}">log in</a></li>
+          <li><a href="{% url 'users:login' %}">log in
+              <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+          </a></li>
         {% endif %}
       </ul>
     </div>
